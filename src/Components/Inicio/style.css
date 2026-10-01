@@ -1,0 +1,14 @@
+.c-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.c-lista-pokemon {
+    background-color: aliceblue;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    min-width: 0;
+    border-radius: 10px;
+}

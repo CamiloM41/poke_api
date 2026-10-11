@@ -1,14 +1,193 @@
-.c-lista {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+/* ===== ESTILOS GENERALES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
 }
 
+/* ===== FILTROS DE TIPOS ===== */
+.c-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 25px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.c-filtro button {
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    padding: 9px 17px;
+    background: #3975c6;
+    color: white;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: capitalize;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #245394;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.c-filtro button:hover {
+    background: #ffcb05;
+    color: #24416b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 0 #d5a900;
+}
+
+.c-filtro button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* ===== BUSCADOR ===== */
+.c-buscador {
+    display: block;
+    width: min(90%, 500px);
+    margin: 10px auto 30px;
+    padding: 15px 22px;
+    border: 3px solid #3975c6;
+    border-radius: 30px;
+    outline: none;
+    background: white;
+    color: #253858;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px #3975c626;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.c-buscador::placeholder {
+    color: #91a4bd;
+}
+
+.c-buscador:focus {
+    border-color: #ffcb05;
+    box-shadow: 0 0 0 4px #ffcb0540;
+}
+
+/* ===== TARJETAS POKÉMON ===== */
 .c-lista-pokemon {
-    background-color: aliceblue;
-    padding: 10px;
-    margin: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    vertical-align: top;
+    width: 190px;
+    min-height: 220px;
+    margin: 12px;
+    padding: 18px 15px;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    border: 3px solid #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 6px 0 #c2d9f0, 0 10px 20px #24416b18;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    animation: aparecer 0.35s ease both;
+}
+
+.c-lista-pokemon:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: #ffcb05;
+    box-shadow: 0 8px 0 #e5b600, 0 15px 25px #24416b25;
+}
+
+/* Nombre del Pokémon */
+.c-lista-pokemon p:first-child {
+    margin: 0 0 8px;
+    color: #24416b;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: capitalize;
     text-align: center;
-    min-width: 0;
-    border-radius: 10px;
+}
+
+/* Número de la Pokédex */
+.c-lista-pokemon p:nth-child(2) {
+    align-self: flex-end;
+    margin: 0 0 5px;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: #dcecff;
+    color: #3975c6;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* Imagen oficial */
+.c-lista-pokemon img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 3px #25385820);
+    transition: transform 0.25s;
+}
+
+.c-lista-pokemon:hover img {
+    transform: scale(1.12) rotate(-4deg);
+}
+
+/* ===== CARGANDO ===== */
+body #root > p {
+    margin: 80px auto;
+    text-align: center;
+    color: #3975c6;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== ADAPTACIÓN A MÓVILES ===== */
+@media (max-width: 600px) {
+    .c-filtro {
+        gap: 8px;
+        padding: 18px 10px;
+    }
+
+    .c-filtro button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .c-lista-pokemon {
+        width: calc(50% - 20px);
+        min-height: 190px;
+        margin: 8px;
+        padding: 12px 8px;
+    }
+
+    .c-lista-pokemon img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .c-lista-pokemon p:first-child {
+        font-size: 14px;
+    }
+
+    .c-buscador {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .c-lista-pokemon {
+        width: calc(100% - 30px);
+    }
 }

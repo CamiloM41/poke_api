@@ -1,0 +1,188 @@
+/* Contenedor principal de la ficha */
+#root > div:has(> h1) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(90%, 650px);
+    margin: 45px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 8px 0 #c2d9f0, 0 15px 35px #24416b20;
+    animation: aparecer 0.45s ease both;
+    overflow: hidden;
+}
+
+/* Franja decorativa superior */
+#root > div:has(> h1)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #e53935 50%, #24416b 50%);
+}
+
+/* Nombre */
+#root > div:has(> h1) h1 {
+    margin: 15px 0 20px;
+    color: #24416b;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 900;
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Imagen oficial */
+#root > div:has(> h1) img {
+    width: 220px;
+    max-width: 80%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    padding: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 25%, #dcecff 100%);
+    filter: drop-shadow(0 10px 8px #24416b20);
+    transition: transform 0.3s ease;
+}
+
+#root > div:has(> h1) img:hover {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+/* Número de Pokédex */
+#root > div:has(> h1) p:first-of-type {
+    margin: 20px 0 8px;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background: #24416b;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+/* Altura y peso */
+#root > div:has(> h1) p:nth-of-type(2) {
+    margin: 5px 0 15px;
+    color: #526781;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Tipos */
+#root > div:has(> h1) p:nth-of-type(3) {
+    margin: 5px 0 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #ffcb05;
+    color: #24416b;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* Estadísticas */
+#root > div:has(> h1) p:nth-of-type(n+4) {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 13px 16px;
+    border-radius: 12px;
+    background: #f0f6ff;
+    border-left: 5px solid #3975c6;
+    color: #334967;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: left;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#root > div:has(> h1) p:nth-of-type(n+4):hover {
+    background: #dcecff;
+    transform: translateX(4px);
+}
+
+/* Botón de favoritos */
+#root > div:has(> h1) button {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-top: 25px;
+    border: 3px solid #e3eaf3;
+    border-radius: 50%;
+    background: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #c2d9f0;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+#root > div:has(> h1) button:hover {
+    transform: scale(1.12);
+    background: #fff0f0;
+    box-shadow: 0 5px 0 #efb4b4;
+}
+
+#root > div:has(> h1) button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* Cargando */
+#root > p {
+    margin: 80px auto;
+    color: #3975c6;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Móviles */
+@media (max-width: 500px) {
+    #root > div:has(> h1) {
+        width: 92%;
+        margin: 25px auto;
+        padding: 25px 18px;
+        border-radius: 24px;
+    }
+
+    #root > div:has(> h1) img {
+        width: 180px;
+    }
+
+    #root > div:has(> h1) p:nth-of-type(n+4) {
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #root > div:has(> h1),
+    #root > div:has(> h1) img,
+    #root > div:has(> h1) button {
+        animation: none;
+        transition: none;
+    }
+}

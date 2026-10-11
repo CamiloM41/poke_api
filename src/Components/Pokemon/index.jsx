@@ -38,7 +38,6 @@ function Pokemon(){
     
     return(
         <div>
-        <p>{datapoke.id}</p>
         <h1>{datapoke.name}</h1>
         <img 
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${datapoke.id}.png`} 
@@ -46,7 +45,7 @@ function Pokemon(){
             width="200"
         />
 
-        <p>{datapoke.id}</p>
+        <p>N° {datapoke.id}</p>
         <p>Altura: {datapoke.height/ 10} m / Peso: {datapoke.weight/ 10} kg</p>
 
         {datapoke.types && (
